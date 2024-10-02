@@ -5,8 +5,10 @@
     <title>PHPでHelo World</title>
 </head>
 <body>
-    <h1>PHPでHelo World</h1>
-    <?php $greeding = 'こんにちは、世界！'; ?>
-    <p><?php echo $greeding; ?></p>
+    <?php $total = 500 * 1.1 ?>
+    <p>税込金額は：<?php echo $total; ?>円です</p>
+    <p>税込金額は：<?php print $total; ?>円です</p>
+    <p><?= '税込金額は：' . $total . '円です'  ?></p>
+    <p><?php var_dump($total); ?></p>
 </body>
 </html>
