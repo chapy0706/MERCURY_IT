@@ -5,6 +5,14 @@
     <title>PHPのデータ型(演算子)</title>
 </head>
 <body>
+    <!-- 参照渡し -->
+    <?php
+        $greeding = 'hello';
+        $passByReference = $greeding;
+        $greeding = 'HELLO';
+    ?>
+    <p>greeding:<?=$greeding?></p>
+    <p>passByReference:<?=$passByReference?></p>
     <!-- 前置・後置インクリメント -->
     <?php $num = 7; ?>
     <?php $added = ++$num; ?>
