@@ -13,8 +13,9 @@
         $stringValue2 = "文字列2"; // 文字列型(ダブルクオート)
         $boolValue = true; // 真偽値型
         $nullValue = ''; // 空文字（文字列型）
+        $numbers = [11, 22, 33, 44]; // 配列
         //Here Document
-        $testHereDocument = <<< 'DOC'
+        $testHereDocument = <<< DOC
     <p>
       税込金額は$total 円です
       '税込金額は：' . $total . '円です'
@@ -29,4 +30,5 @@
     DOC;?>
     
     <p><pre><?=$testHereDocument?></pre></p>
+    <p><pre><?php print_r($numbers)?></pre></p>
 </html>
