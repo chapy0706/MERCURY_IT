@@ -14,7 +14,7 @@
         $boolValue = true; // 真偽値型
         $nullValue = ''; // 空文字（文字列型）
         //Here Document
-        $testHereDocument = <<< DOC
+        $testHereDocument = <<< 'DOC'
     <p>
       税込金額は$total 円です
       '税込金額は：' . $total . '円です'
