@@ -15,18 +15,10 @@
         $greeding = null ;
         echo $greeding ?? 'default value';
     ?>
-    <!-- 前置・後置インクリメント -->
-    <?php $num = 7; ?>
-    <?php $added = ++$num; ?>
-    
-    <p>前置インクリメント時のnum:<?=$num?></p>
-    <p>前置インクリメント時のadded:<?=$added?></p>
-
-    <?php $num = 7; ?>
-    <?php $added = $num++; ?>
-    
-    <p>後置インクリメント時のnum:<?=$num?></p>
-    <p>後置インクリメント時のadded:<?=$added?></p>
+    <!-- 論理演算子と命令文 -->
+    <?php
+        defined('URL_BASE') || die('設定されていない定数です。')
+    ?>
 
     <!-- 配列の合成 -->
     <?php
