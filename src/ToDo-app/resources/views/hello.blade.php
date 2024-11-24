@@ -5,16 +5,14 @@
     <title>PHPのデータ型(演算子)</title>
 </head>
 <body>
-    <!-- 三項演算子 -->
+    <!-- 参照渡し -->
     <?php
         $greeding = 'hello';
-        echo $greeding === 'hello' ? 'Yes' : 'No';
+        $passByReference = $greeding;
         $greeding = 'HELLO';
-        echo $greeding === 'hello' ? 'Yes' : 'No';
-        echo $greeding ?? 'default value';
-        $greeding = null ;
-        echo $greeding ?? 'default value';
     ?>
+    <p>greeding:<?=$greeding?></p>
+    <p>passByReference:<?=$passByReference?></p>
     <!-- 前置・後置インクリメント -->
     <?php $num = 7; ?>
     <?php $added = ++$num; ?>
