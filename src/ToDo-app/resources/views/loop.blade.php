@@ -7,6 +7,20 @@
 </head>
 <body>
     <?php
+        //参照渡しを用いたloop処理
+        $numbers = [3, 5, -2, 5, -10];
+        
+        foreach ($numbers as &$number) {
+            if ($number < 0){
+                $number = 0;
+            }
+        }
+        unset($number);
+    ?>
+    <pre><?php print_r($numbers) ?></pre>
+    <!-- 以降の処理をdie命令で強制終了させる -->
+     <?php die('* 以降の処理はdie命令にて終了させる'); ?>
+    <?php
         $colors = [
             'red' => '赤',
             'blue' => '青',
