@@ -6,6 +6,21 @@
     <title>Document</title>
 </head>
 <body>
+<pre>
+    <?php
+        for ($i = 1; $i <= 3; $i++) {
+            echo "Hello!({$i}回目)", PHP_EOL;
+        }
+
+        // 数値のループ文
+        $num = 100;
+        while ($num < 200) {
+            echo $num, PHP_EOL;
+            $num += 30;
+        }
+        echo '$numが200を超過した為、終了'
+    ?>
+</pre>
     <?php
         //参照渡しを用いたloop処理
         $numbers = [3, 5, -2, 5, -10];
