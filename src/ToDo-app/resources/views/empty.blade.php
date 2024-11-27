@@ -7,6 +7,30 @@
 </head>
 <body>
     <?php
+        // swich文を用いた空欄チェック
+        $message = '';
+        $value = null;
+
+        switch($value){
+            case '' :
+                $message = '変数は空文字です';
+                break;
+            case null :
+                $message = '変数はnullです';
+                break;
+            case '0' :
+                $message = '変数は文字列型です';
+                break;
+            default :
+                $message = '変数は数値です';
+        }
+    ?>
+    <p>swich文を用いた空欄チェック</p>
+    <p>メッセージ：<?=$message;?></p>
+
+    <!-- 動作確認の為、以降の処理をdie命令で停止 -->
+    <?php die('* 以降の処理を無効にする') ?>
+    <?php
         // 曖昧な空欄チェック(変数の否定)
         $value = '0';
         if (!$value) {
