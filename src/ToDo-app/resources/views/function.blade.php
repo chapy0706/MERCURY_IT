@@ -9,11 +9,21 @@
     <pre>
     <?php
         // 2つの数値を足す関数
-        function add($a, $b)
+        function checkNumber($value)
         {
-            if ($a <= 0 || $b <= 0) {
-                echo '引数は正の整数で指定してください';
-                return;
+            return is_numeric($value) && (int)$value > 0;
+        }
+
+        function add($a, $b, &$errorMessage)
+        {
+            if(!checkNumber($a)) {
+                $a = 0;
+                $errorMessage = '(※エラー：1番目の引数が正の整数ではありません)';
+            }
+
+            if(!checkNumber($b)) {
+                $b = 0;
+                $errorMessage = '(※エラー：2番目の引数が正の整数ではありません)';
             }
 
             $total = $a + $b;
@@ -21,15 +31,17 @@
         }
 
         // メインルーチン
-        $result = add(3, -10);
-        echo $result , PHP_EOL;
+        $errorMessage = null;
+        $result = add(3, -10, $errorMessage);
+        echo '計算結果：', $result , $errorMessage , PHP_EOL;
 
-        $result = add(5, 2);
-        echo $result , PHP_EOL;
+        $errorMessage = null;
+        $result = add(5, 2, $errorMessage);
+        echo '計算結果：', $result , $errorMessage , PHP_EOL;
 
-        $result = add(-5, 2);
-        echo $result , PHP_EOL;
-
+        $errorMessage = null;
+        $result = add(-5, 2, $errorMessage);
+        echo '計算結果：', $result , $errorMessage , PHP_EOL;
         
 
     ?>
