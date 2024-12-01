@@ -11,16 +11,24 @@
         // 2つの数値を足す関数
         function add($a, $b)
         {
+            if ($a <= 0 || $b <= 0) {
+                echo '引数は正の整数で指定してください';
+                return;
+            }
+
             $total = $a + $b;
             return $total;
         }
 
         // メインルーチン
-        $result = add(3, 10);
-        echo '計算結果：' , $result , PHP_EOL;
+        $result = add(3, -10);
+        echo $result , PHP_EOL;
 
         $result = add(5, 2);
-        echo '計算結果：' , $result , PHP_EOL;
+        echo $result , PHP_EOL;
+
+        $result = add(-5, 2);
+        echo $result , PHP_EOL;
 
         
 
