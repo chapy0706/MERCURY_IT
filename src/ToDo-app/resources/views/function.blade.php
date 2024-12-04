@@ -8,6 +8,17 @@
 <body>
     <pre>
     <?php
+        $num1 = 3;
+        $num2 = 10;
+
+        function addGlobal()
+        {
+            global $num1 , $num2;
+            return $num1 + $num2;
+        }
+
+        $test = addGlobal();
+        echo $test , PHP_EOL;
         // 2つの数値を足す関数
         function checkNumber($value)
         {
