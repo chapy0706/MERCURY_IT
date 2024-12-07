@@ -1,3 +1,4 @@
+<?php declare(strict_types=1); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,6 +8,17 @@
 </head>
 <body>
     <?php
+        $greeting = 'Good';
+        $greetingMaker = function($time) use ($greeting){
+            print $greeting . ' ' . $time . '<br>';
+        };
+
+        $greetingMaker('Morngin');
+        
+        // 2回目の$greetingMakerの呼びたしで「Beautiful Evening」と表示されないことの確認 
+        $greeting = 'Beautiful';
+        $greetingMaker('Evening');
+
         $addFunction = function ($a, $b) {
             return $a + $b;
         };
