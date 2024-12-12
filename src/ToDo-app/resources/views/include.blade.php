@@ -13,5 +13,6 @@
         <li>年齢：<?=calcAge(20010701)?>歳</li>
         <li>居住：大阪市</li>
     </ul>
+    <?php phpinfo(); ?>
 </body>
 </html>
