@@ -8,8 +8,13 @@
 </head>
 <body>
     <?php
+        //ユーザー向けのその他欄の出力モード
+        define('EXTRA_PRINT_MODE_USER', 1);
+        
+        //販売事業者向けのその他欄の出力モード
+        define('EXTRA_PRINT_MODE_VENDER', 2);
         // 商品の購入履歴の表示関数
-        function printPurchased(array $items, callable $extraDataFunc): void
+        function printPurchased(array $items, int $extraPrintMode): void
         {
             echo '<table border="1">';
             echo '<tr>';
@@ -23,8 +28,13 @@
                 echo '<td>',  $item['date'], '</td>';
                 echo '<td>', $item['name'], '</td>';
                 echo '<td>',  $item['price'], '</td>';
-                // その他欄に印字するデータは呼び出し元が自由に設定できる
-                echo '<td>', $extraDataFunc($item), '</td>';
+                $extraData = '';
+                if ($extraPrintMode === EXTRA_PRINT_MODE_USER){
+                    $extraData = "色：{$item['color']}　サイズ：{$item['size']}";
+                } elseif ($extraPrintMode === EXTRA_PRINT_MODE_VENDER) {
+                    $extraData = "ユーザーID：{$item['user-id']}　商品No：{$item['item-num']} 　製造番号：{$item['serial']}";
+                }
+                echo '<td>', $extraData, '</td>';
                 echo '<tr>';
             }
             echo '</table>';
@@ -55,15 +65,11 @@
             ]
             ];
 
-            echo '<h3>ユーザーのマイページの購入履歴</h3>';
-            printPurchased($items, function ($item) {
-                return "色：{$item['color']}　サイズ：{$item['size']}";
-            });
+            echo 'ユーザーのマイページの購入履歴を出力します...<br>';
+            printPurchased($items, EXTRA_PRINT_MODE_USER);
 
-            echo '<h3>販売事業者専用ページの購入履歴</h3>';
-            printPurchased($items, function ($item) {
-                return "ユーザーID：{$item['user-id']}　商品No：{$item['item-num']}";
-            });
+            echo '販売事業者専用ページの購入履歴を出力します...<br>';
+            printPurchased($items, EXTRA_PRINT_MODE_VENDER);
     ?>
 </body>
 </html>
