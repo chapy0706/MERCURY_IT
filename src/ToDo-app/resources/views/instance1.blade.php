@@ -8,7 +8,9 @@
 </head>
 <body>
     <?php
-        require_once dirname(__FILE__) . '/instance1Task.php';
+        // App\Models\Task クラスを利用
+        use App\Models\Task;
+;
 
         // TODOタスク「パスポートの更新」を作る
         $task1 = new Task();
